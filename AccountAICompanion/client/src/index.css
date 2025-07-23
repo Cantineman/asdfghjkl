@@ -1,0 +1,295 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(222.2, 84%, 4.9%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(222.2, 84%, 4.9%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(222.2, 84%, 4.9%);
+  --primary: hsl(262.1, 83.3%, 57.8%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(210, 40%, 96%);
+  --secondary-foreground: hsl(222.2, 84%, 4.9%);
+  --muted: hsl(210, 40%, 96%);
+  --muted-foreground: hsl(215.4, 16.3%, 46.9%);
+  --accent: hsl(210, 40%, 96%);
+  --accent-foreground: hsl(222.2, 84%, 4.9%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --border: hsl(214.3, 31.8%, 91.4%);
+  --input: hsl(214.3, 31.8%, 91.4%);
+  --ring: hsl(262.1, 83.3%, 57.8%);
+  --radius: 0.75rem;
+
+  /* Custom violet theme colors */
+  --violet-50: hsl(270, 100%, 98%);
+  --violet-100: hsl(269, 100%, 95%);
+  --violet-200: hsl(269, 100%, 92%);
+  --violet-300: hsl(268, 100%, 86%);
+  --violet-400: hsl(270, 95%, 75%);
+  --violet-500: hsl(262.1, 83.3%, 57.8%);
+  --violet-600: hsl(262, 83%, 58%);
+  --violet-700: hsl(263, 70%, 50%);
+  --violet-800: hsl(263, 69%, 42%);
+  --violet-900: hsl(264, 67%, 35%);
+
+  /* Slate colors for neutrals */
+  --slate-50: hsl(210, 40%, 98%);
+  --slate-100: hsl(210, 40%, 96%);
+  --slate-200: hsl(214, 32%, 91%);
+  --slate-300: hsl(213, 27%, 84%);
+  --slate-400: hsl(215, 20%, 65%);
+  --slate-500: hsl(215, 16%, 47%);
+  --slate-600: hsl(215, 19%, 35%);
+  --slate-700: hsl(215, 25%, 27%);
+  --slate-800: hsl(217, 33%, 17%);
+  --slate-900: hsl(222, 84%, 5%);
+
+  /* Blue accent colors */
+  --blue-50: hsl(214, 100%, 97%);
+  --blue-100: hsl(214, 95%, 93%);
+  --blue-500: hsl(217, 91%, 60%);
+  --blue-600: hsl(221, 83%, 53%);
+  --blue-700: hsl(224, 76%, 48%);
+
+  /* Status colors */
+  --green-50: hsl(138, 76%, 97%);
+  --green-100: hsl(141, 84%, 93%);
+  --green-500: hsl(142, 76%, 36%);
+  --green-600: hsl(142, 72%, 29%);
+  --green-700: hsl(142, 69%, 24%);
+
+  --red-50: hsl(0, 86%, 97%);
+  --red-100: hsl(0, 93%, 94%);
+  --red-500: hsl(0, 84%, 60%);
+  --red-600: hsl(0, 72%, 51%);
+  --red-700: hsl(0, 74%, 42%);
+
+  --amber-50: hsl(48, 100%, 96%);
+  --amber-100: hsl(48, 96%, 89%);
+  --amber-500: hsl(45, 93%, 47%);
+  --amber-600: hsl(43, 96%, 56%);
+  --amber-700: hsl(37, 92%, 50%);
+}
+
+.dark {
+  --background: hsl(222.2, 84%, 4.9%);
+  --foreground: hsl(210, 40%, 98%);
+  --card: hsl(222.2, 84%, 4.9%);
+  --card-foreground: hsl(210, 40%, 98%);
+  --popover: hsl(222.2, 84%, 4.9%);
+  --popover-foreground: hsl(210, 40%, 98%);
+  --primary: hsl(262.1, 83.3%, 57.8%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(217.2, 32.6%, 17.5%);
+  --secondary-foreground: hsl(210, 40%, 98%);
+  --muted: hsl(217.2, 32.6%, 17.5%);
+  --muted-foreground: hsl(215, 20.2%, 65.1%);
+  --accent: hsl(217.2, 32.6%, 17.5%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --border: hsl(217.2, 32.6%, 17.5%);
+  --input: hsl(217.2, 32.6%, 17.5%);
+  --ring: hsl(262.1, 83.3%, 57.8%);
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Custom component styles */
+.gradient-bg {
+  background: linear-gradient(135deg, var(--slate-50) 0%, hsl(210, 40%, 96%) 50%, var(--slate-100) 100%);
+}
+
+.glass-effect {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.btn-violet {
+  background: linear-gradient(135deg, var(--violet-600), var(--violet-700));
+  color: white;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn-violet:hover {
+  background: linear-gradient(135deg, var(--violet-700), var(--violet-800));
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+.stat-card {
+  background: white;
+  border: 1px solid var(--slate-200);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.stat-card:hover {
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.form-input {
+  border: 1px solid var(--slate-300);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--violet-500);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+}
+
+.form-select {
+  border: 1px solid var(--slate-300);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+.form-select:focus {
+  outline: none;
+  border-color: var(--violet-500);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+}
+
+.ai-suggestion {
+  background: linear-gradient(135deg, var(--blue-50), var(--violet-50));
+  border: 1px solid var(--blue-200);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.notification-dot {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.badge-connected {
+  background: var(--green-100);
+  color: var(--green-800);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+}
+
+.badge-disconnected {
+  background: var(--slate-100);
+  color: var(--slate-600);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+}
+
+/* Chart container */
+.chart-container {
+  position: relative;
+  height: 300px;
+  width: 100%;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--slate-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--slate-300);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--slate-400);
+}
+
+/* Loading states */
+.loading-spinner {
+  border: 2px solid var(--slate-200);
+  border-top: 2px solid var(--violet-600);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .stat-card {
+    padding: 1rem;
+  }
+  
+  .btn-violet {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Focus states for accessibility */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--violet-500);
+  outline-offset: 2px;
+}
+
+/* Error states */
+.error-input {
+  border-color: var(--red-500);
+  background: var(--red-50);
+}
+
+.error-text {
+  color: var(--red-600);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Success states */
+.success-input {
+  border-color: var(--green-500);
+  background: var(--green-50);
+}
+
+.success-text {
+  color: var(--green-600);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
